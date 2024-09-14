@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bunga</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <header class="bg-blue-600 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <div class="logo text-2xl font-bold">
+                <a href="#" class="text-white hover:text-gray-200">Bunga</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-6 py-10">
+        <form action="" method="POST" class="bg-white p-8 rounded-lg shadow-lg">
+            <div class="mb-6">
+                <p class="text-lg font-semibold mb-4">Pilih Jenis Bunga:</p>
+                <div class="flex items-center mb-4">
+                    <input type="radio" name="status" id="Tunggal" value="Tunggal" onclick="ChangeForm(this)" class="mr-2">
+                    <label for="Tunggal" class="text-gray-700">Bunga Tunggal</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="radio" name="status" id="Majemuk" value="Majemuk" onclick="ChangeForm(this)" class="mr-2">
+                    <label for="Majemuk" class="text-gray-700">Bunga Majemuk</label>
+                </div>
+            </div>
+        
+            <div class="Bunga-Tunggal hidden">
+                <h1 class="text-2xl font-bold mb-6">Hitung Bunga Tunggal</h1>
+                <div class="mb-6">
+                    <input type="number" name="Inputnumber" id="Inputnumber" placeholder="Masukan Pinjaman"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required>
+                </div>
+
+                <div class="flex justify-between mb-6">
+                    <div>
+                        <input type="radio" name="lama" id="Bulan" value="Bulan" onclick="UbahInputLama(this)" class="mr-2">
+                        <label for="Bulan" class="text-gray-700">Bulan</label>
+                    </div>  
+                    <div>
+                        <input type="radio" name="lama" id="Tahun" value="Tahun" onclick="UbahInputLama(this)" class="mr-2">
+                        <label for="Tahun" class="text-gray-700">Tahun</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="lama" id="Triwulan" value="Triwulan" onclick="UbahInputLama(this)" class="mr-2">
+                        <label for="Triwulan" class="text-gray-700">Triwulan</label>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <div class="bulan hidden">
+                        <input type="number" name="InputLamaBulan" id="InputLamaBulan" placeholder="Lama Pinjaman/Bulan"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+
+                    <div class="triwulan hidden">
+                        <input type="number" name="InputLamaTriwulan" id="InputLamaTriwulan" placeholder="Lama Pinjaman/Triwulan"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    
+                    <div class="tahun hidden">
+                        <input type="number" name="InputLamaTahun" id="InputLamaTahun" placeholder="Lama Pinjaman/Tahun"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <input type="number" name="Inputbunga" id="Inputbunga" placeholder="Masukan bunga (%)"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required>
+                </div>
+
+                <div class="mb-6">
+                    <input type="button" value="Hitung Tunggal"
+                        class="w-full px-4 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                        onclick="Submit1()">
+                </div>
+
+                <div class="hasil text-lg font-semibold text-blue-700"></div>
+            </div>
+
+            <div class="Bunga-Majemuk hidden">
+                <h1 class="text-2xl font-bold mb-6">Hitung Bunga Majemuk</h1>
+                <div class="mb-6">
+                    <input type="number" name="Inputnumber2" id="Inputnumber2" placeholder="Masukan Pinjaman"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required>
+                </div>
+
+                <div class="flex justify-between mb-6">
+                    <div>
+                        <input type="radio" name="lama2" id="Bulan2" value="Bulan" onclick="UbahInputLama2(this)" class="mr-2">
+                        <label for="Bulan2" class="text-gray-700">Bulan</label>
+                    </div>  
+                    <div>
+                        <input type="radio" name="lama2" id="Tahun2" value="Tahun" onclick="UbahInputLama2(this)" class="mr-2">
+                        <label for="Tahun2" class="text-gray-700">Tahun</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="lama2" id="Triwulan2" value="Triwulan" onclick="UbahInputLama2(this)" class="mr-2">
+                        <label for="Triwulan2" class="text-gray-700">Triwulan</label>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <div class="bulan2 hidden">
+                        <input type="number" name="InputLamaBulan2" id="InputLamaBulan2" placeholder="Lama Pinjaman/Bulan"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+
+                    <div class="triwulan2 hidden">
+                        <input type="number" name="InputLamaTriwulan2" id="InputLamaTriwulan2" placeholder="Lama Pinjaman/Triwulan"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    
+                    <div class="tahun2 hidden">
+                        <input type="number" name="InputLamaTahun2" id="InputLamaTahun2" placeholder="Lama Pinjaman/Tahun"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <input type="number" name="Inputbunga2" id="Inputbunga2" placeholder="Masukan bunga (%)"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required>
+                </div>
+
+                <div class="mb-6">
+                    <input type="button" value="Hitung Majemuk"
+                        class="w-full px-4 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                        onclick="Submit2()">
+                </div>
+
+                <div class="hasil2 text-lg font-semibold text-blue-700"></div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function ChangeForm(e) {
+            document.querySelector('.Bunga-Tunggal').classList.add('hidden');
+            document.querySelector('.Bunga-Majemuk').classList.add('hidden');
+            
+            if (e.value === 'Tunggal') {
+                document.querySelector('.Bunga-Tunggal').classList.remove('hidden');
+            } else if (e.value === 'Majemuk') {
+                document.querySelector('.Bunga-Majemuk').classList.remove('hidden');
+            }
+        }
+
+        function UbahInputLama(e) {
+            const PilihanInputBulan = document.querySelector('.bulan');
+            const PilihanInputTahun = document.querySelector('.tahun');
+            const PilihanInputTriwulan = document.querySelector('.triwulan');
+            
+            PilihanInputBulan.classList.add('hidden');
+            PilihanInputTahun.classList.add('hidden');
+            PilihanInputTriwulan.classList.add('hidden');
+
+            if (e.value === 'Bulan') {
+                PilihanInputBulan.classList.remove('hidden');
+            } else if (e.value === 'Tahun') {
+                PilihanInputTahun.classList.remove('hidden');
+            } else if (e.value === 'Triwulan') {
+                PilihanInputTriwulan.classList.remove('hidden');
+            }
+        }
+
+        function UbahInputLama2(e) {
+            const PilihanInputBulan2 = document.querySelector('.bulan2');
+            const PilihanInputTahun2 = document.querySelector('.tahun2');
+            const PilihanInputTriwulan2 = document.querySelector('.triwulan2');
+            
+            PilihanInputBulan2.classList.add('hidden');
+            PilihanInputTahun2.classList.add('hidden');
+            PilihanInputTriwulan2.classList.add('hidden');
+
+            if (e.value === 'Bulan') {
+                PilihanInputBulan2.classList.remove('hidden');
+            } else if (e.value === 'Tahun') {
+                PilihanInputTahun2.classList.remove('hidden');
+            } else if (e.value === 'Triwulan') {
+                PilihanInputTriwulan2.classList.remove('hidden');
+            }
+        }
+
+        function Submit1() {
+            const Inputnumber = parseFloat(document.getElementById('Inputnumber').value);
+            const InputLamaBulan = parseFloat(document.getElementById('InputLamaBulan').value);
+            const InputLamaTahun = parseFloat(document.getElementById('InputLamaTahun').value) * 12;
+            const InputLamaTriwulan = parseFloat(document.getElementById('InputLamaTriwulan').value) * 3;
+            const Inputbunga = parseFloat(document.getElementById('Inputbunga').value) / 100;
+
+            let lama = 0;
+
+            if (!isNaN(InputLamaBulan)) {
+                lama = InputLamaBulan;
+            } 
+            if (!isNaN(InputLamaTahun)) {
+                lama = InputLamaTahun;
+            } 
+            if (!isNaN(InputLamaTriwulan)) {
+                lama = InputLamaTriwulan;
+            }
+
+            if (!isNaN(Inputnumber) && lama > 0 && !isNaN(Inputbunga)) {
+                const RumusTunggal = Inputnumber * Inputbunga * lama;
+                document.querySelector('.hasil').textContent = `Bunga = Rp ${numberWithCommas(RumusTunggal.toFixed(0))}`;
+            } else {
+                document.querySelector('.hasil').textContent = 'Mohon masukkan semua data dengan benar.';
+            }
+        }
+
+        function Submit2() {
+            const Inputnumber2 = parseFloat(document.getElementById('Inputnumber2').value);
+            const InputLamaBulan2 = parseFloat(document.getElementById('InputLamaBulan2').value);
+            const InputLamaTahun2 = parseFloat(document.getElementById('InputLamaTahun2').value) * 12;
+            const InputLamaTriwulan2 = parseFloat(document.getElementById('InputLamaTriwulan2').value) * 3;
+            const Inputbunga2 = parseFloat(document.getElementById('Inputbunga2').value) / 100;
+
+            let lama2 = 0;
+
+            if (!isNaN(InputLamaBulan2)) {
+                lama2 = InputLamaBulan2;
+            } 
+            if (!isNaN(InputLamaTahun2)) {
+                lama2 = InputLamaTahun2;
+            } 
+            if (!isNaN(InputLamaTriwulan2)) {
+                lama2 = InputLamaTriwulan2;
+            }
+
+            if (!isNaN(Inputnumber2) && lama2 > 0 && !isNaN(Inputbunga2)) {
+                const RumusMajemuk = Inputnumber2 * Math.pow(1 + Inputbunga2, lama2) - Inputnumber2;
+                document.querySelector('.hasil2').textContent = `Bunga = Rp ${numberWithCommas(RumusMajemuk.toFixed(0))}`;
+            } else {
+                document.querySelector('.hasil2').textContent = 'Mohon masukkan semua data dengan benar.';
+            }
+        }
+
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+    </script>
+
+</body>
+</html>
